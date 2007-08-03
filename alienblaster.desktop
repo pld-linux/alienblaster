@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=alienblaster
+Comment=Shooting arcade game
+Comment[pl]=Zręcznościowa strzelanka
+Icon=alienblaster.xpm
+Exec=alienblaster
+Terminal=false
+Type=Application
+Categories=Game;ArcadeGame;
+Encoding=UTF-8
+# vi: encoding=utf-8
