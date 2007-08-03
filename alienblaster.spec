@@ -7,6 +7,8 @@ License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://www.informatik.uni-bremen.de/~schwardt/alienblaster/%{name}-%{version}.tgz
 # Source0-md5:	27412a868f7d4ae0949036aeb29a6691
+Source1:	%{name}.xpm
+Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.schwardtnet.de/alienblaster/
 BuildRequires:	SDL-devel >= 1.2.7
@@ -37,9 +39,11 @@ Celem gry jest powstrzymanie inwazji obcych i znieszczenie ich.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_desktopdir},%{_pixmapsdir}}
 
-cp alienBlaster $RPM_BUILD_ROOT%{_bindir}/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+install alienBlaster $RPM_BUILD_ROOT%{_bindir}/%{name}
 cp -r {images,sound,cfg} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
@@ -50,3 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS CHANGELOG
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.xpm
