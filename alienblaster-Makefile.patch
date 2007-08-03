@@ -1,0 +1,28 @@
+--- alienblaster/src/Makefile~	2004-08-19 18:24:20.000000000 +0200
++++ alienblaster/src/Makefile	2007-08-02 16:45:56.000000000 +0200
+@@ -15,6 +15,8 @@
+ # SDL library
+ SDL_LIBS=$(shell sdl-config --libs)
+ SDL_FLAGS=$(shell sdl-config --cflags)
++CXXFLAGS=
++LDFLAGS=
+ 
+ # game flags
+ GAME_FLAGS=-D_GNU_SOURCE -Wall -Winline -finline-functions $(SDL_FLAGS) $(OPTIMIZATION)
+@@ -47,14 +49,14 @@
+ 	@echo ""
+ 	@echo ""
+ 	@echo "Linking $@"
+-	@$(COMPILER) $(GAME_LIBS) -o $(GAME_NAME) $(OBJECT_FILES)
++	@$(COMPILER) $(CXXFLAGS) $(LDFLAGS) -o $(GAME_NAME) $(OBJECT_FILES) $(GAME_LIBS)
+ 	mv $(GAME_NAME) ../
+ 
+ %.o: %.cc
+ 	@echo ""
+ 	@echo ""
+ 	@echo "Compiling $<"
+-	@$(COMPILER) $(GAME_FLAGS) $(INCLUDE_PATH) -c $< -o $@ 
++	@$(COMPILER) $(CXXFLAGS) $(GAME_FLAGS) $(INCLUDE_PATH) -c $< -o $@ 
+ 
+ depend:  dep
+ 
