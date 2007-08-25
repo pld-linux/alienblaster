@@ -20,7 +20,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The game goal is to stop the invasion of the aliens and blast them.
 
 %description -l pl.UTF-8
-Celem gry jest powstrzymanie inwazji obcych i znieszczenie ich.
+Celem gry jest powstrzymanie inwazji obcych i zniszczenie ich.
 
 %prep
 %setup -q -n %{name}
