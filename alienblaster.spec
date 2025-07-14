@@ -24,7 +24,7 @@ Celem gry jest powstrzymanie inwazji obcych i zniszczenie ich.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
+%patch -P0 -p1
 %{__sed} -i 's@images@%{_datadir}/%{name}/images@' cfg/{level1.cfg,level2.cfg}
 %{__sed} -i 's@.//@/@' cfg/{level1.cfg,level2.cfg}
 %{__sed} -i 's@./images@%{_datadir}/%{name}/images@' src/{global.cc,global.h}
